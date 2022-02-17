@@ -1,11 +1,15 @@
 import './App.css';
 
-import { PostCreate } from './components/PostCreate';
+import { PostCreate, PostList } from './components';
 
 function App() {
   return (
     <div className="App">
       <PostCreate />
+
+      <hr />
+
+      <PostList />
     </div>
   );
 }
