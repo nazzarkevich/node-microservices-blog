@@ -8,7 +8,7 @@ export const PostList = () => {
   const [posts, setPosts] = useState({});
 
   const fetchPosts = async () => {
-    const response = await axios.get('http://localhost:3001/posts');
+    const response = await axios.get('http://localhost:3003/posts');
 
     setPosts(response.data);
   };
@@ -21,7 +21,7 @@ export const PostList = () => {
     <div className="container">
       <h2>Post list</h2>
       <div className="d-flex justify-content-between flex-row flex-wrap">
-        {Object.values(posts).map(({ id, title, description }) => (
+        {Object.values(posts).map(({ id, title, description, comments }) => (
           <div
             className="card"
             style={{
@@ -36,7 +36,7 @@ export const PostList = () => {
               <h3>{title}</h3>
               <p>{description}</p>
             </div>
-            <CommentList postId={id} />
+            <CommentList comments={comments} />
             <CommentCreate postId={id} />
           </div>
         ))}
